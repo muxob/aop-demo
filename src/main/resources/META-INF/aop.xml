@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+
+<!-- AspectJ load-time weaving config file with Spring aspects -->
+<aspectj>
+    <!-- Add this argument to options to make AspectJ logs use the Spring logging framework. -->
+    <!-- -XmessageHandlerClass:org.springframework.aop.aspectj.AspectJWeaverMessageHandler -->
+    <!--<weaver options="-verbose -showWeaveInfo -Xlint:warning">-->
+    <weaver options="-showWeaveInfo -Xlint:warning -Xset:weaveJavaxPackages=true">
+        <!--
+            Only weave classes in our application-specific packages.
+            This should encompass any class that wants to utilize the aspects,
+            and does not need to encompass the aspects themselves.
+        -->
+        <include within="com.solaregde.wsd.comp.aopdemo..*" />
+    </weaver>
+
+    <aspects>
+        <aspect name="com.solaregde.wsd.comp.aopdemo.aspect.StatisticsAspect"/>
+    </aspects>
+
+</aspectj>
